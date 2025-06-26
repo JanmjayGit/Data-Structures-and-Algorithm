@@ -23,6 +23,8 @@ class Solution {
 
         q.add(root);
         int leftmost = -1;
+
+        // level oder traversel from right to left
         while(!q.isEmpty()){
             
             TreeNode temp = q.poll();
