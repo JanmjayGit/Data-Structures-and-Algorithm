@@ -31,7 +31,7 @@ class Solution {
                 TreeNode temp = q.poll();
 
                 if(i == 0){
-                    leftmost = temp.val;
+                    leftmost = temp.val; // update ans at every node
                 }
                 if(temp.left != null){
                     q.add(temp.left);
