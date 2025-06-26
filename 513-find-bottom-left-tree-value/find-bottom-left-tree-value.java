@@ -22,25 +22,20 @@ class Solution {
         }
 
         q.add(root);
-        int leftmost = root.val;
+        int leftmost = -1;
         while(!q.isEmpty()){
-            int depth = q.size();
             
-            for(int i =0; i < depth; i++){
-                
-                TreeNode temp = q.poll();
+            TreeNode temp = q.poll();
 
-                if(i == 0){
-                    leftmost = temp.val; // update ans at every node
-                }
-                if(temp.left != null){
-                    q.add(temp.left);
-                }
-                if(temp.right != null){
-                    q.add(temp.right);
-                }
-
+            leftmost = temp.val;
+            if(temp.right != null){
+                q.add(temp.right);
             }
+            if(temp.left != null){
+                q.add(temp.left);
+            }
+
+            
 
             
             
