@@ -3,22 +3,24 @@ class Solution {
         int n = s.length();
 
         int maxlength = 0;
-        
-        for(int i =0; i< n; i++){
-            HashSet<Character> hash = new HashSet<>();
+        HashSet<Character> set = new HashSet<>();
+        int l =0;
+        int r = 0;
 
-            for(int j = i; j < n; j++){
-                char currString = s.charAt(j);
+        while(r < n){
+            char currChar = s.charAt(r);
 
-                if(hash.contains(currString)){
-                    break;
-                }
-                hash.add(currString);
-               int len = j - i +1;
+            if(!set.contains(currChar)){
+                set.add(currChar);
+                int len = r-l+1;
                 maxlength = Math.max(len, maxlength);
+                r++;
+            }else{
+                set.remove(s.charAt(l));
+                l++;
             }
-            
         }
+        
         return maxlength;
     }
 }
